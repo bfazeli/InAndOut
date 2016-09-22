@@ -39,7 +39,7 @@ public class OrderActivity extends Activity {
         currentOrder = new Order();
     }
 
-    //Button for sending order
+    // Button for sending order
     public void sendOrder (View view) {
         setOrder();
 
@@ -57,6 +57,7 @@ public class OrderActivity extends Activity {
         startActivity(summaryIntent);
     }
 
+    // Setup order
     private void setOrder() {
         int doubleDouble, cheeseburger, frenchFries, shakes,
                 smallDrinks, mediumDrinks, largeDrinks;
@@ -112,6 +113,7 @@ public class OrderActivity extends Activity {
         currentOrder.setLargeDrinks(largeDrinks);
     }
 
+    // Build the order
     private void constructOrderText() {
         totalText = getString(R.string.total) + " " + currency.format(currentOrder.calculateTotal());
         itemsOrderedText = getString(R.string.item_count) + " " + currentOrder.getNumberItemsOrdered();
@@ -119,8 +121,9 @@ public class OrderActivity extends Activity {
         taxText = getString(R.string.tax) + " " + currency.format(currentOrder.calculateTax());
     }
 
+    // Reset all the fields in our order
     private void resetAllFields() {
-        //Reset all fields before going to the next page
+        // Reset all field values in the Order model
         currentOrder.setLargeDrinks(0);
         currentOrder.setCheeseburgers(0);
         currentOrder.setMediumDrinks(0);
@@ -129,6 +132,7 @@ public class OrderActivity extends Activity {
         currentOrder.setFrenchFries(0);
         currentOrder.setDoubleDoubles(0);
 
+        // Reset all text fields in our view
         doubleDoubleEditText.setText("");
         cheeseburgerEditText.setText("");
         frenchFriesEditText.setText("");
