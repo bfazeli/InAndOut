@@ -10,4 +10,9 @@
     <string name="medium">Medium $1.55</string>
     <string name="large">Large $1.75</string>
     <string name="order_btn">PLACE ORDER</string>
+    <string name="total">Order Total</string>
+    <string name="item_count">Items Ordered:</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="tax">Tax (8%):</string>
+    <string name="return_btn">START NEW ORDER</string>
 </resources>

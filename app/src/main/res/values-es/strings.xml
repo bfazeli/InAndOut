@@ -12,4 +12,10 @@
     <string name="cheeseburgers">Hamburguesa $ 2.15</string>
     <string name="order">REALIZAR PEDIDO</string>
     <string name="order_btn">REALIZAR PEDIDO</string>
+    <string name="item_count"> Artículos ordenados:</string>
+    <string name="return_btn">INICIO NUEVO ORDEN</string>
+    <string name="subtotal">Total parcial</string>
+    <string name="tax"> Impuestos (8%):</string>
+    <string name="title2">Total del pedido</string>
+    <string name="total">Total del pedido</string>
 </resources>

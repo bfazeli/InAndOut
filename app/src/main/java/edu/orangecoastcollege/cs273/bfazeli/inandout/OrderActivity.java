@@ -1,5 +1,6 @@
 package edu.orangecoastcollege.cs273.bfazeli.inandout;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,8 @@ public class OrderActivity extends AppCompatActivity {
 
     private String totalText, itemsOrderedText, subTotalText, taxText;
 
+    private Intent orderIntent;
+
     private static NumberFormat currency = NumberFormat.getCurrencyInstance();
 
     @Override
@@ -37,10 +40,15 @@ public class OrderActivity extends AppCompatActivity {
         currentOrder = new Order();
     }
 
+    //Button for sending order
     private void sendOrder (View view) {
         setOrder();
 
+        constructOrderText();
+        setUpIntent();
 
+        //Start the new Activity w/ the intent data
+        startActivity(orderIntent);
     }
 
     private void setOrder() {
@@ -76,6 +84,18 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     private void constructOrderText() {
-        //totalText = getString(R.string.id)
+        totalText = getString(R.string.total) + " " + currency.format(currentOrder.calculateTotal());
+        itemsOrderedText = getString(R.string.item_count) + " " + currentOrder.getNumberItemsOrdered();
+        subTotalText = getString(R.string.subtotal) + " " + currency.format(currentOrder.calculateSubtotal());
+        taxText = getString(R.string.tax) + " " + currency.format(currentOrder.calculateTax());
+    }
+
+    private void setUpIntent() {
+        orderIntent = new Intent(this, SummaryActivity.class);
+
+        orderIntent.putExtra("Total", totalText);
+        orderIntent.putExtra("ItemCount", itemsOrderedText);
+        orderIntent.putExtra("Subtotal", subTotalText);
+        orderIntent.putExtra("Tax", taxText);
     }
 }
