@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">InAndOut</string>
+    <string name="title">Place an Order</string>
+    <string name="double_double">Double Double $3.60</string>
+    <string name="cheeseburgers">Cheeseburger $2.15</string>
+    <string name="french_fries">French Fries $1.65</string>
+    <string name="shakes">Shakes $2.20</string>
+    <string name="fountain_drinks">Fountain Drinks (pick size)</string>
+    <string name="small">Small $1.45</string>
+    <string name="medium">Medium $1.55</string>
+    <string name="large">Large $1.75</string>
+    <string name="order_btn">PLACE ORDER</string>
 </resources>

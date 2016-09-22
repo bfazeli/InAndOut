@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">InAndOut</string>
+    <string name="title">Realizar un pedido</string>
+    <string name="double_double">Doble Doble $3.60</string>
+    <string name="small"> Pequeño $ 1.45</string>
+    <string name="shakes"> Batidos $ 2.20</string>
+    <string name="medium">Medio $ 1.55</string>
+    <string name="large">Ampliación de $ 1.75</string>
+    <string name="french_fries">Patatas fritas $ 1.65</string>
+    <string name="fountain_drinks"> Bebidas de la fuente (elegir tamaño)</string>
+    <string name="cheeseburgers">Hamburguesa $ 2.15</string>
+    <string name="order">REALIZAR PEDIDO</string>
+    <string name="order_btn">REALIZAR PEDIDO</string>
+</resources>

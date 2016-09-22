@@ -11,17 +11,17 @@ public class Order {
             PRICE_FRENCH_FRIES = 1.65, PRICE_LARGE_DRINK = 1.75, PRICE_MEDIUM_DRINK = 1.55,
             PRICE_SHAKE = 2.20, PRICE_SMALL_DRINK = 1.45, TAX_RATE = .08;
 
-    public Order(int cheeseburgers, int doubleDoubles, int frenchFries, int largeDrinks,
-                 int mediumDrinks, int shakes, int smallDrinks)
-    {
-        mCheeseburgers = cheeseburgers;
-        mDoubleDoubles = doubleDoubles;
-        mFrenchFries = frenchFries;
-        mLargeDrinks = largeDrinks;
-        mMediumDrinks = mediumDrinks;
-        mShakes = shakes;
-        mSmallDrinks = smallDrinks;
-    }
+//    public Order(int cheeseburgers, int doubleDoubles, int frenchFries, int largeDrinks,
+//                 int mediumDrinks, int shakes, int smallDrinks)
+//    {
+//        mCheeseburgers = cheeseburgers;
+//        mDoubleDoubles = doubleDoubles;
+//        mFrenchFries = frenchFries;
+//        mLargeDrinks = largeDrinks;
+//        mMediumDrinks = mediumDrinks;
+//        mShakes = shakes;
+//        mSmallDrinks = smallDrinks;
+//    }
 
     public int getCheeseburgers() {
         return mCheeseburgers;
@@ -89,5 +89,13 @@ public class Order {
                 (mFrenchFries * PRICE_FRENCH_FRIES) + (mLargeDrinks * PRICE_LARGE_DRINK) +
                 (mMediumDrinks * PRICE_MEDIUM_DRINK) + (mShakes * PRICE_MEDIUM_DRINK) +
                 (mShakes * PRICE_SHAKE) + (mSmallDrinks * PRICE_SMALL_DRINK);
+    }
+
+    public double calculateTax() {
+        return calculateSubtotal() * TAX_RATE;
+    }
+
+    public double calculateTotal() {
+        return calculateSubtotal() + calculateTax();
     }
 }
