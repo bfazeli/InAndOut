@@ -1,5 +1,6 @@
 package edu.orangecoastcollege.cs273.bfazeli.inandout;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +11,7 @@ import android.widget.TextView;
 import java.text.NumberFormat;
 import java.util.Currency;
 
-public class OrderActivity extends AppCompatActivity {
+public class OrderActivity extends Activity {
 
     private EditText doubleDoubleEditText, cheeseburgerEditText, frenchFriesEditText,
                         shakesEditText, smallDrinksEditText, mediumDrinksEditText,
@@ -19,8 +20,6 @@ public class OrderActivity extends AppCompatActivity {
     private Order currentOrder;
 
     private String totalText, itemsOrderedText, subTotalText, taxText;
-
-    private Intent orderIntent;
 
     private static NumberFormat currency = NumberFormat.getCurrencyInstance();
 
@@ -41,42 +40,72 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     //Button for sending order
-    private void sendOrder (View view) {
+    public void sendOrder (View view) {
         setOrder();
 
         constructOrderText();
-        setUpIntent();
+
+        Intent summaryIntent = new Intent(this, SummaryActivity.class);
+        summaryIntent.putExtra("Total", totalText);
+        summaryIntent.putExtra("ItemCount", itemsOrderedText);
+        summaryIntent.putExtra("Subtotal", subTotalText);
+        summaryIntent.putExtra("Tax", taxText);
+
+        resetAllFields();
 
         //Start the new Activity w/ the intent data
-        startActivity(orderIntent);
+        startActivity(summaryIntent);
     }
 
     private void setOrder() {
-        int doubleDouble, cheeseburger, frenchfries, shakes,
+        int doubleDouble, cheeseburger, frenchFries, shakes,
                 smallDrinks, mediumDrinks, largeDrinks;
 
         try {
             doubleDouble = Integer.parseInt(doubleDoubleEditText.getText().toString());
-            cheeseburger = Integer.parseInt(cheeseburgerEditText.getText().toString());
-            frenchfries = Integer.parseInt(frenchFriesEditText.getText().toString());
-            shakes = Integer.parseInt(shakesEditText.getText().toString());
-            smallDrinks = Integer.parseInt(smallDrinksEditText.getText().toString());
-            mediumDrinks = Integer.parseInt(mediumDrinksEditText.getText().toString());
-            largeDrinks = Integer.parseInt(largeDrinksEditText.getText().toString());
-        }
-        catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             doubleDouble = 0;
+        }
+
+        try {
+            cheeseburger = Integer.parseInt(cheeseburgerEditText.getText().toString());
+        } catch (NumberFormatException e) {
             cheeseburger = 0;
-            frenchfries = 0;
+        }
+
+        try {
+            frenchFries = Integer.parseInt(frenchFriesEditText.getText().toString());
+        } catch (NumberFormatException e) {
+            frenchFries = 0;
+        }
+
+        try {
+            shakes = Integer.parseInt(shakesEditText.getText().toString());
+        } catch (NumberFormatException e) {
             shakes = 0;
+        }
+
+        try {
+            smallDrinks = Integer.parseInt(smallDrinksEditText.getText().toString());
+        } catch (NumberFormatException e) {
             smallDrinks = 0;
+        }
+
+        try {
+            mediumDrinks = Integer.parseInt(mediumDrinksEditText.getText().toString());
+        } catch (NumberFormatException e) {
             mediumDrinks = 0;
+        }
+
+        try {
+            largeDrinks = Integer.parseInt(largeDrinksEditText.getText().toString());
+        } catch (NumberFormatException e) {
             largeDrinks = 0;
         }
 
         currentOrder.setDoubleDoubles(doubleDouble);
         currentOrder.setCheeseburgers(cheeseburger);
-        currentOrder.setFrenchFries(frenchfries);
+        currentOrder.setFrenchFries(frenchFries);
         currentOrder.setShakes(shakes);
         currentOrder.setSmallDrinks(smallDrinks);
         currentOrder.setMediumDrinks(mediumDrinks);
@@ -90,12 +119,22 @@ public class OrderActivity extends AppCompatActivity {
         taxText = getString(R.string.tax) + " " + currency.format(currentOrder.calculateTax());
     }
 
-    private void setUpIntent() {
-        orderIntent = new Intent(this, SummaryActivity.class);
+    private void resetAllFields() {
+        //Reset all fields before going to the next page
+        currentOrder.setLargeDrinks(0);
+        currentOrder.setCheeseburgers(0);
+        currentOrder.setMediumDrinks(0);
+        currentOrder.setSmallDrinks(0);
+        currentOrder.setShakes(0);
+        currentOrder.setFrenchFries(0);
+        currentOrder.setDoubleDoubles(0);
 
-        orderIntent.putExtra("Total", totalText);
-        orderIntent.putExtra("ItemCount", itemsOrderedText);
-        orderIntent.putExtra("Subtotal", subTotalText);
-        orderIntent.putExtra("Tax", taxText);
+        doubleDoubleEditText.setText("");
+        cheeseburgerEditText.setText("");
+        frenchFriesEditText.setText("");
+        shakesEditText.setText("");
+        largeDrinksEditText.setText("");
+        mediumDrinksEditText.setText("");
+        smallDrinksEditText.setText("");
     }
 }

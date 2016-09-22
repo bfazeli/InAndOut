@@ -87,8 +87,8 @@ public class Order {
     public double calculateSubtotal() {
         return (mCheeseburgers * PRICE_CHEESEBURGER) + (mDoubleDoubles * PRICE_DOUBLE_DOUBLE) +
                 (mFrenchFries * PRICE_FRENCH_FRIES) + (mLargeDrinks * PRICE_LARGE_DRINK) +
-                (mMediumDrinks * PRICE_MEDIUM_DRINK) + (mShakes * PRICE_MEDIUM_DRINK) +
-                (mShakes * PRICE_SHAKE) + (mSmallDrinks * PRICE_SMALL_DRINK);
+                (mMediumDrinks * PRICE_MEDIUM_DRINK) + (mShakes * PRICE_SHAKE) +
+                (mSmallDrinks * PRICE_SMALL_DRINK);
     }
 
     public double calculateTax() {
