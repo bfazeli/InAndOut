@@ -7,6 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * SummaryActivity class, serves as controller between Order.java and activity_summary.xml.
+ *
+ * @author bijanfazeli
+ */
 public class SummaryActivity extends Activity {
 
     TextView totalTextView, itemCountTextView, subtotalTextView, taxTextView;
@@ -33,5 +38,9 @@ public class SummaryActivity extends Activity {
         taxTextView.setText(orderIntent.getStringExtra("Tax"));
     }
 
+    /**
+     * returnToOrderEntry   Returns to the original page.
+     * @param view
+     */
     public void returnToOrderEntry(View view) { this.finish(); }
 }

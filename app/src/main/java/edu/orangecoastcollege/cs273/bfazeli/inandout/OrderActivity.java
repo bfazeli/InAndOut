@@ -11,8 +11,14 @@ import android.widget.TextView;
 import java.text.NumberFormat;
 import java.util.Currency;
 
+/**
+ * OrderActivity class, serves as controller between Order.java and activity_order.xml.
+ *
+ * @author bijanfazeli
+ */
 public class OrderActivity extends Activity {
 
+    // Declarations
     private EditText doubleDoubleEditText, cheeseburgerEditText, frenchFriesEditText,
                         shakesEditText, smallDrinksEditText, mediumDrinksEditText,
                         largeDrinksEditText;
@@ -21,6 +27,7 @@ public class OrderActivity extends Activity {
 
     private String totalText, itemsOrderedText, subTotalText, taxText;
 
+    // Setting up currency region specific
     private static NumberFormat currency = NumberFormat.getCurrencyInstance();
 
     @Override
@@ -39,7 +46,10 @@ public class OrderActivity extends Activity {
         currentOrder = new Order();
     }
 
-    // Button for sending order
+    /**
+     * sendOrder   Sends an intent to SummaryActivity.
+     * @param view
+     */
     public void sendOrder (View view) {
         setOrder();
 
@@ -57,7 +67,6 @@ public class OrderActivity extends Activity {
         startActivity(summaryIntent);
     }
 
-    // Setup order
     private void setOrder() {
         int doubleDouble, cheeseburger, frenchFries, shakes,
                 smallDrinks, mediumDrinks, largeDrinks;

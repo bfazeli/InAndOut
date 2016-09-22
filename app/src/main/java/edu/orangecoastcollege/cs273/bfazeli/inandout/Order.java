@@ -16,61 +16,115 @@ public class Order {
             mMediumDrinks, mShakes, mSmallDrinks;
 
     // Accessors and Mutators
+    /**
+     * getCheeseburgers Gets the cheeseburger count
+     * @return  The count of cheeseburgers.
+     */
     public int getCheeseburgers() {
         return mCheeseburgers;
     }
 
+    /**
+     * setCheeseburgers   Sets the count of cheeseburgers.
+     * @param cheeseburgers   Sets it to the parameter passed in
+     */
     public void setCheeseburgers(int cheeseburgers) {
         mCheeseburgers = cheeseburgers;
     }
 
+    /**
+     * getDoubleDoubles Gets the double doubles count
+     * @return  The count of double doubles.
+     */
     public int getDoubleDoubles() {
         return mDoubleDoubles;
     }
 
+    /**
+     * setDoubleDoubles   Sets the count of double doubles.
+     * @param doubleDoubles   Sets it to the parameter passed in
+     */
     public void setDoubleDoubles(int doubleDoubles) {
         mDoubleDoubles = doubleDoubles;
     }
 
+    /**
+     * getFrenchFries Gets the french fries count
+     * @return  The count of french fries.
+     */
     public int getFrenchFries() {
         return mFrenchFries;
     }
 
+    /**
+     * setFrenchFries   Sets the count of french fries.
+     * @param frenchFries   Sets it to the parameter passed in
+     */
     public void setFrenchFries(int frenchFries) {
         mFrenchFries = frenchFries;
     }
 
+    /**
+     * getLargeDrinks Gets the large drink count
+     * @return  The count of large drinks.
+     */
     public int getLargeDrinks() {
         return mLargeDrinks;
     }
 
+    /**
+     * setLargeDrinks   Sets the large drink.
+     * @param largeDrinks   Sets it to the parameter passed in
+     */
     public void setLargeDrinks(int largeDrinks) {
         mLargeDrinks = largeDrinks;
     }
 
+    /**
+     * getMediumDrinks Gets the medium drink count
+     * @return  The count of medium drinks.
+     */
     public int getMediumDrinks() {
         return mMediumDrinks;
     }
 
+    /**
+     * setMediumDrinks   Sets the medium drink.
+     * @param mediumDrinks   Sets it to the parameter passed in
+     */
     public void setMediumDrinks(int mediumDrinks) {
         mMediumDrinks = mediumDrinks;
     }
 
+    /**
+     * getShakes Gets the shakes count
+     * @return  The count of shakes.
+     */
     public int getShakes() {
         return mShakes;
     }
 
+    /**
+     * setShakes   Sets the shakes.
+     * @param shakes   Sets it to the parameter passed in
+     */
     public void setShakes(int shakes) {
         mShakes = shakes;
     }
 
+    /**
+     * getSmallDrinks Gets the small drinks count.
+     * @return  The count of small drinks.
+     */
     public int getSmallDrinks() {
         return mSmallDrinks;
     }
 
-    public void setSmallDrinks(int smallDrinks) {
-        mSmallDrinks = smallDrinks;
-    }
+    /**
+     * setSmallDrinks   Sets the small drink.
+     * @param smallDrinks   Sets it to the parameter passed in
+     */
+    public void setSmallDrinks(int smallDrinks) { mSmallDrinks = smallDrinks; }
 
     /**
      * getNumberItemsOrdered()  Adds the total count of the individual items in the current order.
